@@ -17,5 +17,7 @@ services:
       MYSQL_DATABASE: example_db
     volumes:
       - db_data:/var/lib/mysql
+      - ./create_table_chuck.sql:/docker-entrypoint-initdb.d/create_table_chuck.sql
 volumes:
   db_data:
+
