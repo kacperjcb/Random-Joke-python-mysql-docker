@@ -1,5 +1,13 @@
 version: '3'
 services:
+  db:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: example_password
+      MYSQL_DATABASE: example_db
+    volumes:
+      - db_data:/var/lib/mysql
+      - ./create_table_chuck.sql:/docker-entrypoint-initdb.d/create_table_chuck.sql
   web:
     build: .
     ports:
@@ -10,14 +18,7 @@ services:
       - .:/code
     depends_on:
       - db
-  db:
-    image: mysql:5.7
-    environment:
-      MYSQL_ROOT_PASSWORD: example_password
-      MYSQL_DATABASE: example_db
-    volumes:
-      - db_data:/var/lib/mysql
-      - ./create_table_chuck.sql:/docker-entrypoint-initdb.d/create_table_chuck.sql
+  
 volumes:
   db_data:
 
