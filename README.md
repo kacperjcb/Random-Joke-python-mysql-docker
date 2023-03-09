@@ -1,5 +1,4 @@
-# How to use:  <br>
-
+How to use:  <br>
 1. Type: docker-compose up in cmd <br>
 <br>
 2. Run localhost:5000 - In browser <br>
